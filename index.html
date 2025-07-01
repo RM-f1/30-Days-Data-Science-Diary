@@ -2,51 +2,219 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>45 Days Data Science Diary</title>
+  <title>Training Report - Data Science</title>
   <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
     body {
       font-family: Arial, sans-serif;
-      padding: 30px;
-      background-color: #f9f9f9;
-      color: #333;
-    }
-    h1 {
+       background: url('bg_git.jpg') no-repeat center center/cover;
+      min-height: 100vh;
+      color: #FFD700;
       text-align: center;
-      color: #007acc;
+      padding: 50px 20px;
     }
-    ul {
-      list-style: none;
-      padding-left: 0;
+
+    h1, h2, h3 {
+      color: #FFD700;
+      text-shadow: 1px 1px 4px #000;
     }
-    li {
-      padding: 10px;
-      background: #fff;
+
+    h1 {
+      font-size: 32px;
       margin-bottom: 10px;
-      border-radius: 8px;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    }
-    li a {
-      text-decoration: none;
-      color: #333;
       font-weight: bold;
     }
-    li:hover {
-      background-color: #e0f0ff;
+
+    h2 {
+      font-size: 20px;
+      margin-bottom: 5px;
+    }
+
+    h3 {
+      font-size: 24px;
+      margin: 10px 0 30px;
+      font-weight: bold;
+    }
+
+    .btn-group {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 30px;
+    }
+
+    .btn-group a {
+      display: inline-block;
+      padding: 10px 15px;
+      background-color: rgba(0, 0, 0, 0.7);
+      color: #FFD700;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: all 0.3s ease;
+      font-weight: bold;
+      border: 1px solid #FFD700;
+    }
+
+    .btn-group a:hover,
+    .btn-group a.active {
+      background-color: #FFD700;
+      color: #000;
+      transform: scale(1.05);
+    }
+
+    .special-btn {
+      background-color: #111;
+      border: 2px solid #FFD700;
+    }
+
+    .special-btn:hover {
+      background-color: #FFD700;
+      color: #000;
+    }
+
+    .content {
+      display: none;
+      padding: 20px;
+      background-color: rgba(0, 0, 0, 0.85);
+      color: #FFD700;
+      border-radius: 10px;
+      max-width: 800px;
+      margin: 0 auto 20px;
+      box-shadow: 0 0 10px #FFD700;
     }
   </style>
 </head>
 <body>
 
-  <h1>45 Days Data Science Training Diary</h1>
+  <h1>Training Report - Data Science</h1>
+  <h2>By Ramandeep Kaur</h2>
+  <h2>Guru Nanak Dev Engineering College, Ludhiana</h2>
+  <h3>45 Days Training</h3>
 
-  <ul>
-    <li><a href="days/day1.html">Day 1: Python Introduction</a></li>
-    <li><a href="days/day2.html">Day 2: Loops and Functions</a></li>
-    <li><a href="days/day3.html">Day 3: Dictionaries & Arguments</a></li>
-    <li><a href="days/day4.html">Day 4: NumPy, Pandas, Datasets</a></li>
-    <li><a href="days/day5.html">Day 5: Series, Graphs, Analysis</a></li>
-    <!-- Add more days here as you go -->
-  </ul>
+  <div class="btn-group">
+    <a href="#" class="special-btn">Training Certificate</a>
+    <a href="#" class="special-btn">Final Report</a>
+  </div>
 
+  <div class="btn-group">
+    <!-- DAY BUTTONS -->
+    <!-- You can repeat this easily or loop with JS in future -->
+    <a href="#" class="tab">DAY-1</a>
+    <a href="#" class="tab">DAY-2</a>
+    <a href="#" class="tab">DAY-3</a>
+    <a href="#" class="tab">DAY-4</a>
+    <a href="#" class="tab">DAY-5</a>
+    <a href="#" class="tab">DAY-6</a>
+    <a href="#" class="tab">DAY-7</a>
+    <a href="#" class="tab">DAY-8</a>
+    <a href="#" class="tab">DAY-9</a>
+    <a href="#" class="tab">DAY-10</a>
+    <a href="#" class="tab">DAY-11</a>
+    <a href="#" class="tab">DAY-12</a>
+    <a href="#" class="tab">DAY-13</a>
+    <a href="#" class="tab">DAY-14</a>
+    <a href="#" class="tab">DAY-15</a>
+    <a href="#" class="tab">DAY-16</a>
+    <a href="#" class="tab">DAY-17</a>
+    <a href="#" class="tab">DAY-18</a>
+    <a href="#" class="tab">DAY-19</a>
+    <a href="#" class="tab">DAY-20</a>
+    <a href="#" class="tab">DAY-21</a>
+    <a href="#" class="tab">DAY-22</a>
+    <a href="#" class="tab">DAY-23</a>
+    <a href="#" class="tab">DAY-24</a>
+    <a href="#" class="tab">DAY-25</a>
+    <a href="#" class="tab">DAY-26</a>
+    <a href="#" class="tab">DAY-27</a>
+    <a href="#" class="tab">DAY-28</a>
+    <a href="#" class="tab">DAY-29</a>
+    <a href="#" class="tab">DAY-30</a>
+    <a href="#" class="tab">DAY-31</a>
+    <a href="#" class="tab">DAY-32</a>
+    <a href="#" class="tab">DAY-33</a>
+    <a href="#" class="tab">DAY-34</a>
+    <a href="#" class="tab">DAY-35</a>
+    <a href="#" class="tab">DAY-36</a>
+    <a href="#" class="tab">DAY-37</a>
+    <a href="#" class="tab">DAY-38</a>
+    <a href="#" class="tab">DAY-39</a>
+    <a href="#" class="tab">DAY-40</a>
+    <a href="#" class="tab">DAY-41</a>
+    <a href="#" class="tab">DAY-42</a>
+    <a href="#" class="tab">DAY-43</a>
+    <a href="#" class="tab">DAY-44</a>
+    <a href="#" class="tab">DAY-45</a>
+  </div>
+
+  <!-- DAY CONTENTS -->
+  <!-- Add content or keep empty for now -->
+  <div class="content">Content for Day 1</div>
+  <div class="content">Content for Day 2</div>
+  <div class="content">Content for Day 3</div>
+  <div class="content">Content for Day 4</div>
+  <div class="content">Content for Day 5</div>
+  <div class="content">Content for Day 6</div>
+  <div class="content">Content for Day 7</div>
+  <div class="content">Content for Day 8</div>
+  <div class="content">Content for Day 9</div>
+  <div class="content">Content for Day 10</div>
+  <div class="content">Content for Day 11</div>
+  <div class="content">Content for Day 12</div>
+  <div class="content">Content for Day 13</div>
+  <div class="content">Content for Day 14</div>
+  <div class="content">Content for Day 15</div>
+  <div class="content">Content for Day 16</div>
+  <div class="content">Content for Day 17</div>
+  <div class="content">Content for Day 18</div>
+  <div class="content">Content for Day 19</div>
+  <div class="content">Content for Day 20</div>
+  <div class="content">Content for Day 21</div>
+  <div class="content">Content for Day 22</div>
+  <div class="content">Content for Day 23</div>
+  <div class="content">Content for Day 24</div>
+  <div class="content">Content for Day 25</div>
+  <div class="content">Content for Day 26</div>
+  <div class="content">Content for Day 27</div>
+  <div class="content">Content for Day 28</div>
+  <div class="content">Content for Day 29</div>
+  <div class="content">Content for Day 30</div>
+  <div class="content">Content for Day 31</div>
+  <div class="content">Content for Day 32</div>
+  <div class="content">Content for Day 33</div>
+  <div class="content">Content for Day 34</div>
+  <div class="content">Content for Day 35</div>
+  <div class="content">Content for Day 36</div>
+  <div class="content">Content for Day 37</div>
+  <div class="content">Content for Day 38</div>
+  <div class="content">Content for Day 39</div>
+  <div class="content">Content for Day 40</div>
+  <div class="content">Content for Day 41</div>
+  <div class="content">Content for Day 42</div>
+  <div class="content">Content for Day 43</div>
+  <div class="content">Content for Day 44</div>
+  <div class="content">Content for Day 45</div>
+
+  <script>
+    const tabs = document.querySelectorAll(".tab");
+    const contents = document.querySelectorAll(".content");
+
+    tabs.forEach((tab, index) => {
+      tab.addEventListener("click", (e) => {
+        e.preventDefault();
+
+        contents.forEach(c => c.style.display = "none");
+        tabs.forEach(t => t.classList.remove("active"));
+
+        contents[index].style.display = "block";
+        tab.classList.add("active");
+      });
+    });
+  </script>
 </body>
 </html>
