@@ -1,227 +1,261 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Training Report - Data Science</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&family=Orbitron:wght@600&display=swap" rel="stylesheet" />
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    /* RESET */
+    * {margin:0;padding:0;box-sizing:border-box;}
 
     body {
-      font-family: Arial, sans-serif;
-       background: url('bg_git.jpg') no-repeat center center/cover;
+      font-family: 'Poppins', sans-serif;
+      color: #1E293B;
       min-height: 100vh;
-      color: #FFD700;
-      text-align: center;
-      padding: 50px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 60px 20px;
+      overflow-x: hidden;
+      background: linear-gradient(120deg, #D8F3DC, #ADE8F4, #FEE1E8);
+      background-size: 400% 400%;
+      animation: bgShift 12s ease infinite;
     }
 
-    h1, h2, h3 {
-      color: #FFD700;
-      text-shadow: 1px 1px 4px #000;
+    @keyframes bgShift {
+      0% {background-position: 0% 50%;}
+      50% {background-position: 100% 50%;}
+      100% {background-position: 0% 50%;}
+    }
+
+    /* ✨ FLOATING PARTICLES */
+    body::before, body::after {
+      content: "";
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: radial-gradient(circle at 20% 20%, rgba(255,255,255,0.15), transparent 40%),
+                  radial-gradient(circle at 80% 70%, rgba(255,255,255,0.1), transparent 50%);
+      z-index: -1;
+      animation: floatGlow 10s ease-in-out infinite alternate;
+    }
+
+    @keyframes floatGlow {
+      from {transform: translateY(0px);}
+      to {transform: translateY(-20px);}
+    }
+
+    /* HEADER */
+    header {
+      text-align: center;
+      margin-bottom: 40px;
+      color: #0f172a;
     }
 
     h1 {
-      font-size: 32px;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 42px;
+      letter-spacing: 1px;
+      background: linear-gradient(90deg, #6366F1, #22D3EE);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
       margin-bottom: 10px;
-      font-weight: bold;
     }
 
     h2 {
+      font-weight: 500;
       font-size: 20px;
-      margin-bottom: 5px;
+      color: #334155;
     }
 
     h3 {
-      font-size: 24px;
-      margin: 10px 0 30px;
-      font-weight: bold;
+      font-weight: 400;
+      color: #475569;
+      margin-top: 6px;
+      font-style: italic;
     }
 
+    /* NAVBAR */
+    nav {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 18px;
+      margin: 35px 0 50px;
+    }
+
+    nav a {
+      padding: 12px 26px;
+      border-radius: 30px;
+      background: rgba(255,255,255,0.4);
+      backdrop-filter: blur(8px);
+      text-decoration: none;
+      font-weight: 600;
+      color: #334155;
+      transition: 0.4s;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+      border: 1px solid rgba(255,255,255,0.3);
+    }
+
+    nav a:hover, nav a.active {
+      background: linear-gradient(90deg, #6366F1, #22D3EE);
+      color: white;
+      transform: translateY(-3px);
+      box-shadow: 0 8px 18px rgba(99,102,241,0.35);
+    }
+
+    /* CERTIFICATE BUTTONS */
     .btn-group {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 10px;
-      margin-bottom: 30px;
+      gap: 15px;
+      margin-bottom: 40px;
     }
 
     .btn-group a {
-      display: inline-block;
-      padding: 10px 15px;
-      background-color: rgba(0, 0, 0, 0.7);
-      color: #FFD700;
+      padding: 12px 28px;
+      border-radius: 30px;
+      background: #FFF1F3;
+      color: #7F1D1D;
+      font-weight: 600;
       text-decoration: none;
-      border-radius: 5px;
-      transition: all 0.3s ease;
-      font-weight: bold;
-      border: 1px solid #FFD700;
+      box-shadow: 0 4px 8px rgba(139,92,192,0.15);
+      border: 1px solid rgba(255,255,255,0.5);
+      transition: 0.4s;
     }
 
-    .btn-group a:hover,
-    .btn-group a.active {
-      background-color: #FFD700;
-      color: #000;
-      transform: scale(1.05);
+    .btn-group a:hover {
+      background: #FDE68A;
+      color: #78350F;
+      transform: translateY(-3px);
+      box-shadow: 0 8px 15px rgba(253,224,71,0.4);
     }
 
-    .special-btn {
-      background-color: #111;
-      border: 2px solid #FFD700;
+    /* GRID */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: 20px;
+      width: 90%;
+      max-width: 900px;
+      margin-bottom: 60px;
     }
 
-    .special-btn:hover {
-      background-color: #FFD700;
-      color: #000;
+    .grid a {
+      display: block;
+      padding: 18px 0;
+      border-radius: 20px;
+      background: rgba(255,255,255,0.6);
+      backdrop-filter: blur(10px);
+      text-decoration: none;
+      text-align: center;
+      font-weight: 600;
+      color: #1E293B;
+      box-shadow: 0 8px 18px rgba(100,116,139,0.15);
+      transition: 0.35s ease;
+      position: relative;
+      overflow: hidden;
     }
 
+    .grid a::before {
+      content: "";
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255,255,255,0.3), transparent 60%);
+      transform: translate(-50%, -50%) scale(0);
+      transition: transform 0.5s ease;
+    }
+
+    .grid a:hover::before {
+      transform: translate(-50%, -50%) scale(1);
+    }
+
+    .grid a:hover,
+    .grid a.active {
+      background: linear-gradient(135deg, #A7F3D0, #C7D2FE);
+      color: #0F172A;
+      box-shadow: 0 10px 24px rgba(14,165,233,0.35);
+      transform: scale(1.08);
+      z-index: 5;
+    }
+
+    /* CONTENT */
     .content {
       display: none;
-      padding: 20px;
-      background-color: rgba(0, 0, 0, 0.85);
-      color: #FFD700;
-      border-radius: 10px;
-      max-width: 800px;
-      margin: 0 auto 20px;
-      box-shadow: 0 0 10px #FFD700;
+      width: 90%;
+      max-width: 900px;
+      border-radius: 20px;
+      background: rgba(255,255,255,0.85);
+      box-shadow: 0 15px 30px rgba(99,102,241,0.15);
+      overflow: hidden;
+      animation: fadeIn 0.6s ease;
+    }
+
+    .content iframe {
+      width: 100%;
+      height: 600px;
+      border: none;
+    }
+
+    @keyframes fadeIn {
+      from {opacity:0; transform: translateY(20px);}
+      to {opacity:1; transform: translateY(0);}
+    }
+
+    @media (max-width: 600px) {
+      h1 {font-size: 30px;}
+      iframe {height: 400px;}
     }
   </style>
 </head>
+
 <body>
+  <header>
+    <h1>Training Report - Data Science</h1>
+    <h2>By Ramandeep Kaur</h2>
+    <h3>Guru Nanak Dev Engineering College, Ludhiana | 30 Days Training</h3>
+  </header>
 
-  <h1>Training Report - Data Science</h1>
-  <h2>By Ramandeep Kaur</h2>
-  <h2>Guru Nanak Dev Engineering College, Ludhiana</h2>
-  <h3>45 Days Training</h3>
+  <nav>
+    <a href="#" class="active">Home</a>
+    <a href="#">Diary</a>
+    <a href="#">About</a>
+    <a href="#">Contact</a>
+  </nav>
 
   <div class="btn-group">
-    <a href="#" class="special-btn">Training Certificate</a>
-    <a href="#" class="special-btn">Final Report</a>
+    <a href="#">Training Certificate</a>
+    <a href="#">Final Report</a>
   </div>
 
-  <div class="btn-group">
-    <!-- DAY BUTTONS -->
-    <!-- You can repeat this easily or loop with JS in future -->
-    <a href="#" class="tab">DAY-1</a>
-    <a href="#" class="tab">DAY-2</a>
-    <a href="#" class="tab">DAY-3</a>
-    <a href="#" class="tab">DAY-4</a>
-    <a href="#" class="tab">DAY-5</a>
-    <a href="#" class="tab">DAY-6</a>
-    <a href="#" class="tab">DAY-7</a>
-    <a href="#" class="tab">DAY-8</a>
-    <a href="#" class="tab">DAY-9</a>
-    <a href="#" class="tab">DAY-10</a>
-    <a href="#" class="tab">DAY-11</a>
-    <a href="#" class="tab">DAY-12</a>
-    <a href="#" class="tab">DAY-13</a>
-    <a href="#" class="tab">DAY-14</a>
-    <a href="#" class="tab">DAY-15</a>
-    <a href="#" class="tab">DAY-16</a>
-    <a href="#" class="tab">DAY-17</a>
-    <a href="#" class="tab">DAY-18</a>
-    <a href="#" class="tab">DAY-19</a>
-    <a href="#" class="tab">DAY-20</a>
-    <a href="#" class="tab">DAY-21</a>
-    <a href="#" class="tab">DAY-22</a>
-    <a href="#" class="tab">DAY-23</a>
-    <a href="#" class="tab">DAY-24</a>
-    <a href="#" class="tab">DAY-25</a>
-    <a href="#" class="tab">DAY-26</a>
-    <a href="#" class="tab">DAY-27</a>
-    <a href="#" class="tab">DAY-28</a>
-    <a href="#" class="tab">DAY-29</a>
-    <a href="#" class="tab">DAY-30</a>
+  <div class="grid">
+    <a href="#" class="tab active">DAY 1</a>
+    <a href="#" class="tab">DAY 2</a>
+    <a href="#" class="tab">DAY 3</a>
+    <a href="#" class="tab">DAY 4</a>
+    <a href="#" class="tab">DAY 5</a>
+    <a href="#" class="tab">DAY 6</a>
+    <a href="#" class="tab">DAY 7</a>
+    <a href="#" class="tab">DAY 8</a>
+    <a href="#" class="tab">DAY 9</a>
+    <a href="#" class="tab">DAY 10</a>
   </div>
 
-  <!-- DAY CONTENTS -->
-  <!-- Add content or keep empty for now -->
-<div class="content">
-  <iframe src="https://docs.google.com/gview?url=https://rm-f1.github.io/45-Days-Data-Science-Diary/DAY1_python.pdf&embedded=true" width="100%" height="600px" style="border: none;"></iframe>
-</div>
-
+  <div class="content" style="display:block;">
+    <iframe src="https://docs.google.com/gview?url=https://rm-f1.github.io/45-Days-Data-Science-Diary/DAY1_python.pdf&embedded=true"></iframe>
+  </div>
 
   <div class="content">
-  <iframe src="https://nbviewer.org/urls/raw.githubusercontent.com/RM-f1/45-Days-Data-Science-Diary/main/DAY-2.ipynb" width="100%" height="600px" style="border:none;"></iframe>
-
-</div>
-
-
-<div class="content">
-  <iframe src="https://nbviewer.org/github/RM-f1/45-Days-Data-Science-Diary/blob/main/DAY-3.ipynb" width="100%" height="600px" style="border: none;"></iframe>
-</div>
-
-
-
+    <iframe src="https://nbviewer.org/urls/raw.githubusercontent.com/RM-f1/45-Days-Data-Science-Diary/main/DAY-2.ipynb"></iframe>
+  </div>
 
   <div class="content">
-  <iframe src="https://nbviewer.org/github/RM-f1/45-Days-Data-Science-Diary/blob/main/DAY-4.ipynb" width="100%" height="600px" style="border:none;"></iframe>
-
-</div>
-
- <div class="content">
-  <iframe src="https://nbviewer.org/github/RM-f1/45-Days-Data-Science-Diary/blob/main/DAY-5.ipynb" width="100%" height="600px" style="border: none;"></iframe>
-</div>
-
-  <div class="content">
-  <iframe src="https://nbviewer.org/github/RM-f1/45-Days-Data-Science-Diary/blob/main/DAY-6.ipynb" width="100%" height="600px" style="border: none;"></iframe>
-</div>
-
-  <div class="content">
-  <iframe src="https://nbviewer.org/github/RM-f1/45-Days-Data-Science-Diary/blob/main/DAY-7.ipynb" width="100%" height="600px" style="border: none;"></iframe>
-</div>
-
- <div class="content">
-  <iframe src="https://nbviewer.org/github/RM-f1/45-Days-Data-Science-Diary/blob/main/DAY-8.ipynb" width="100%" height="600px" style="border: none;"></iframe>
-</div>
-
- <div class="content">
-  <iframe src="https://nbviewer.org/github/RM-f1/45-Days-Data-Science-Diary/blob/main/DAY-9.ipynb" width="100%" height="600px" style="border: none;"></iframe>
-</div>
-
-  <div class="content">
-  <iframe src="https://nbviewer.org/github/RM-f1/45-Days-Data-Science-Diary/blob/main/DAY-10.ipynb" width="100%" height="600px" style="border: none;"></iframe>
-</div>
- <div class="content">
-  <iframe src="https://nbviewer.org/github/RM-f1/45-Days-Data-Science-Diary/blob/main/DAY-11.ipynb" width="100%" height="600px" style="border: none;"></iframe>
-</div>
- <div class="content">
-  <iframe src="https://nbviewer.org/github/RM-f1/45-Days-Data-Science-Diary/blob/main/DAY-12.ipynb" width="100%" height="600px" style="border: none;"></iframe>
-</div>
- <div class="content">
-  <iframe src="https://nbviewer.org/github/RM-f1/45-Days-Data-Science-Diary/blob/main/DAY-13.ipynb" width="100%" height="600px" style="border: none;"></iframe>
-</div>
- <div class="content">
-  <iframe src="https://nbviewer.org/github/RM-f1/45-Days-Data-Science-Diary/blob/main/DAY-14.ipynb" width="100%" height="600px" style="border: none;"></iframe>
-</div>
- <div class="content">
-  <iframe src="https://nbviewer.org/github/RM-f1/45-Days-Data-Science-Diary/blob/main/DAY-15.ipynb" width="100%" height="600px" style="border: none;"></iframe>
-</div>
-
-  <div class="content">Content for Day 11</div>
-  <div class="content">Content for Day 12</div>
-  <div class="content">Content for Day 13</div>
-  <div class="content">Content for Day 14</div>
-  <div class="content">Content for Day 15</div>
-  <div class="content">Content for Day 16</div>
-  <div class="content">Content for Day 17</div>
-  <div class="content">Content for Day 18</div>
-  <div class="content">Content for Day 19</div>
-  <div class="content">Content for Day 20</div>
-  <div class="content">Content for Day 21</div>
-  <div class="content">Content for Day 22</div>
-  <div class="content">Content for Day 23</div>
-  <div class="content">Content for Day 24</div>
-  <div class="content">Content for Day 25</div>
-  <div class="content">Content for Day 26</div>
-  <div class="content">Content for Day 27</div>
-  <div class="content">Content for Day 28</div>
-  <div class="content">Content for Day 29</div>
-  <div class="content">Content for Day 30</div>
- 
+    <iframe src="https://nbviewer.org/github/RM-f1/45-Days-Data-Science-Diary/blob/main/DAY-3.ipynb"></iframe>
+  </div>
 
   <script>
     const tabs = document.querySelectorAll(".tab");
@@ -230,15 +264,12 @@
     tabs.forEach((tab, index) => {
       tab.addEventListener("click", (e) => {
         e.preventDefault();
-
         contents.forEach(c => c.style.display = "none");
         tabs.forEach(t => t.classList.remove("active"));
-
-        contents[index].style.display = "block";
+        if (contents[index]) contents[index].style.display = "block";
         tab.classList.add("active");
       });
     });
   </script>
 </body>
 </html>
-
